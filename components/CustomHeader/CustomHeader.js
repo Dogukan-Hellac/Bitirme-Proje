@@ -1,7 +1,10 @@
-import React, { useState } from 'react'
-import { View, Image, Dimensions } from 'react-native'
-import { SafeAreaView } from 'react-native-safe-area-context'
+import React, { useState, useEffect } from 'react'
+import { View, Image } from 'react-native'
 import styles from './CustomHeader.style'
+import { SafeAreaView } from 'react-native-safe-area-context'
+import { DrawerActions } from '@react-navigation/native'
+import { useDrawerStatus } from '@react-navigation/drawer';
+
 
 import Feather from '@expo/vector-icons/Feather'
 
@@ -11,7 +14,13 @@ import CustomButton from '../CustomButton'
 export default function CustomHeader({ navigation }) {
     const [isVisible, setIsVisible] = useState(true)
     const [text, setText] = useState('')
-    const [toggleMenu, setToggleMenu] = useState(false)
+
+    const drawerStatus = useDrawerStatus()
+
+    useEffect(() => {
+        console.log(drawerStatus);
+
+    }, [drawerStatus])
 
     return (
         <View>
@@ -22,10 +31,12 @@ export default function CustomHeader({ navigation }) {
                 <View style={styles.top_container}>
                     <Feather
                         style={styles.top_item}
-                        name={toggleMenu ? 'minus' : 'list'}
+                        name={drawerStatus === 'open' ? 'minus' : 'list'}
                         size={30}
                         color="black"
-                        onPress={() => setToggleMenu(!toggleMenu)}
+                        onPress={() => (
+                            navigation.dispatch((DrawerActions.toggleDrawer))
+                        )}
                     />
                     <Image
                         style={[styles.image, styles.top_item]}
@@ -65,6 +76,5 @@ export default function CustomHeader({ navigation }) {
                 <CustomButton title='Ara' />
             </View>
         </View>
-
     )
 }
