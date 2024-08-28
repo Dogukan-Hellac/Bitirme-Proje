@@ -5,7 +5,7 @@ export default StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         paddingVertical: 5,
-       
+
     },
     top_container: {
         flexDirection: 'row',
@@ -26,8 +26,14 @@ export default StyleSheet.create({
     bottom_item: {
         marginRight: 10
     },
-    input_container: {
+    toggle_container: {
         backgroundColor: 'red',
-        flexDirection:'row'
+        flexDirection: 'row',
+    },
+    input_container: {
+        flex: 5
+    },
+    button_container: {
+        flex: 1
     }
 })

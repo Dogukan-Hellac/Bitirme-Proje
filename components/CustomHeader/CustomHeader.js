@@ -67,13 +67,17 @@ export default function CustomHeader({ navigation }) {
                     />
                 </View>
             </SafeAreaView>
-            <View style={[isVisible ? { display: 'none' } : styles.input_container]}>
-                <CustomInput
-                    placeholder='Ürün ara...'
-                    onChangeText={setText}
-                    value={text}
-                />
-                <CustomButton title='Ara' />
+            <View style={[isVisible ? { display: 'none' } : styles.toggle_container]}>
+                <View style={styles.input_container}>
+                    <CustomInput
+                        placeholder='Ürün ara...'
+                        onChangeText={setText}
+                        value={text}
+                    />
+                </View>
+                <View style={styles.button_container}>
+                    <CustomButton title='Ara' />
+                </View>
             </View>
         </View>
     )
