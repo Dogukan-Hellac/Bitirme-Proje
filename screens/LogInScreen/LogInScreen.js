@@ -9,8 +9,8 @@ export default function LogInScreen() {
   return (
     <View style={styles.container}>
       <View style={styles.top_container}>
-        <Text>VESTEL KİMLİK</Text>
-        <Text>Birçok Marka, Tek Hesap</Text>
+        <Text style={styles.title}>VESTEL KİMLİK</Text>
+        <Text style={styles.titleText}>Birçok Marka, Tek Hesap</Text>
       </View>
       <View style={styles.middle_container}>
         <View style={styles.input_container}>
@@ -40,8 +40,8 @@ export default function LogInScreen() {
         </View>
       </View>
       <View style={styles.bottom_container}>
-        <Text>Şifremi Unuttum</Text>
-        <Text>Oturum ve Hesabınızla İlgili Sorular</Text>
+        <Text style={[styles.text, styles.textPassword]}>Şifremi Unuttum</Text>
+        <Text style={styles.text}>Oturum ve Hesabınızla İlgili Sorular</Text>
         <CustomButton
           title='Vestel Hesabı Oluştur'
           theme='secondary'
