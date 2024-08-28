@@ -1,11 +1,16 @@
-import React from 'react'
-import { View, Image, TextInput } from 'react-native'
+import React, { useState } from 'react'
+import { View, Image } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import styles from './CustomHeader.style'
 
 import Feather from '@expo/vector-icons/Feather'
 
+import CustomInput from '../CustomInput'
+
 export default function CustomHeader({ navigation }) {
+    const [isVisible, setIsVisible] = useState(true)
+    const [text, setText] = useState('')
+
     return (
         <View>
             <SafeAreaView style={styles.container}>
@@ -34,6 +39,7 @@ export default function CustomHeader({ navigation }) {
                         size={30}
                         color="black"
                         style={styles.bottom_item}
+                        onPress={() => setIsVisible(!isVisible)}
                     />
                     <Feather
                         name="shopping-cart"
@@ -44,8 +50,12 @@ export default function CustomHeader({ navigation }) {
                     />
                 </View>
             </SafeAreaView>
-            <View style={styles.input_container}>
-                <TextInput />
+            <View style={[isVisible ? { display: 'none' } : styles.input_container]}>
+                <CustomInput
+                    placeholder='Ürün ara...'
+                    onChangeText={setText}
+                    value={text}
+                />
             </View>
         </View>
 

@@ -2,8 +2,8 @@ import { StyleSheet } from "react-native"
 
 export default StyleSheet.create({
     container: {
-        flexDirection: 'row', 
-        justifyContent: 'space-between', 
+        flexDirection: 'row',
+        justifyContent: 'space-between',
         paddingVertical: 5
     },
     top_container: {
@@ -26,7 +26,6 @@ export default StyleSheet.create({
         marginRight: 10
     },
     input_container: {
-        // display: 'none',
-        backgroundColor: 'red'
+        backgroundColor: 'red',
     }
 })
