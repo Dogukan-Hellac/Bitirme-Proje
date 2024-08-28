@@ -1,25 +1,31 @@
 import React, { useState } from 'react'
-import { View, Image } from 'react-native'
+import { View, Image, Dimensions } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import styles from './CustomHeader.style'
 
 import Feather from '@expo/vector-icons/Feather'
 
 import CustomInput from '../CustomInput'
+import CustomButton from '../CustomButton'
 
 export default function CustomHeader({ navigation }) {
     const [isVisible, setIsVisible] = useState(true)
     const [text, setText] = useState('')
+    const [toggleMenu, setToggleMenu] = useState(false)
 
     return (
         <View>
-            <SafeAreaView style={styles.container}>
+            <SafeAreaView style={[styles.container, isVisible && {
+                borderBottomWidth: 3,
+                borderBottomColor: 'red'
+            }]}>
                 <View style={styles.top_container}>
                     <Feather
                         style={styles.top_item}
-                        name="list"
+                        name={toggleMenu ? 'minus' : 'list'}
                         size={30}
                         color="black"
+                        onPress={() => setToggleMenu(!toggleMenu)}
                     />
                     <Image
                         style={[styles.image, styles.top_item]}
@@ -42,7 +48,7 @@ export default function CustomHeader({ navigation }) {
                         onPress={() => setIsVisible(!isVisible)}
                     />
                     <Feather
-                        name="shopping-cart"
+                        name="shopping-bag"
                         size={30}
                         color="black"
                         style={styles.bottom_item}
@@ -56,6 +62,7 @@ export default function CustomHeader({ navigation }) {
                     onChangeText={setText}
                     value={text}
                 />
+                <CustomButton title='Ara' />
             </View>
         </View>
 
