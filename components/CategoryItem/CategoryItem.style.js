@@ -3,7 +3,8 @@ import { StyleSheet } from "react-native"
 const baseStyle = {
     container: {
         backgroundColor: 'white',
-        margin: 10,
+        margin: 5,
+        marginVertical: 15,
         padding: 10,
 
 
@@ -25,7 +26,7 @@ export default StyleSheet.create({
         container: {
             ...baseStyle.container,
             borderWidth: 0.5,
-            borderColor:'red',
+            borderColor: 'red',
 
             shadowColor: 'red',
         },

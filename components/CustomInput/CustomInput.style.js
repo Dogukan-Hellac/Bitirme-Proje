@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import colors from '../../constants/Colors'
 
 const baseStyle = {
     continer: {
@@ -13,7 +14,7 @@ const baseStyle = {
 export default StyleSheet.create({
     primary: {
         ...baseStyle.continer,
-        backgroundColor: 'white',
+        backgroundColor: colors.white
 
     },
     input: {
@@ -21,8 +22,8 @@ export default StyleSheet.create({
     },
     secondary: {
         ...baseStyle.continer,
-        backgroundColor: 'lightgray',
-        borderBottomWidth: 1,
-        borderBottomColor: 'darkgray'
+        backgroundColor: colors.lightgray,
+        borderBottomWidth: 0.5,
+        borderBottomColor: colors.gray
     }
 })

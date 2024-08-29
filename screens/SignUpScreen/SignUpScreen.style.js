@@ -1,4 +1,5 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from "react-native"
+import colors from '../../constants/Colors'
 
 export default StyleSheet.create({
     container: {
@@ -14,7 +15,7 @@ export default StyleSheet.create({
     title: {
         fontSize: 20,
         fontWeight: 'bold',
-        color: 'red'
+        color: colors.darkred
     },
     titleText: {
         fontSize: 12
@@ -32,9 +33,9 @@ export default StyleSheet.create({
     },
     tr: {
         flex: 1,
-        backgroundColor: 'lightgray',
-        borderWidth: 1,
-        borderColor:'darkgray',
+        backgroundColor: colors.lightgray,
+        borderWidth: 0.5,
+        borderColor: colors.gray,
         marginVertical: 5,
         marginLeft: 5,
         padding: 5,
@@ -50,6 +51,6 @@ export default StyleSheet.create({
         fontWeight: 'bold'
     },
     textPassword: {
-        color: 'red'
+        color: colors.darkred
     }
 })

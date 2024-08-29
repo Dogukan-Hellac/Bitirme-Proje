@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import colors from '../../constants/Colors'
 
 export default StyleSheet.create({
     container: {
@@ -14,7 +15,7 @@ export default StyleSheet.create({
     title: {
         fontSize: 20,
         fontWeight: 'bold',
-        color: 'red'
+        color: colors.darkred
     },
     titleText: {
         fontSize: 12
@@ -35,10 +36,10 @@ export default StyleSheet.create({
     text: {
         alignSelf: 'center',
         marginBottom: 15,
-        textDecorationLine:'underline',
-        fontWeight:'bold'
+        textDecorationLine: 'underline',
+        fontWeight: 'bold'
     },
-    textPassword:{
-        color:'red'
+    textPassword: {
+        color: colors.darkred
     }
 })

@@ -24,10 +24,7 @@ export default function CustomHeader({ navigation }) {
 
     return (
         <View>
-            <SafeAreaView style={[styles.container, isVisible && {
-                borderBottomWidth: 3,
-                borderBottomColor: 'red'
-            }]}>
+            <SafeAreaView style={[styles.container, isVisible && styles.container_border]}>
                 <View style={styles.top_container}>
                     <Feather
                         style={styles.top_item}

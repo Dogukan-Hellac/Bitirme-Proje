@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native"
+import colors from '../../constants/Colors'
 
 export default StyleSheet.create({
     container: {
@@ -6,6 +7,10 @@ export default StyleSheet.create({
         justifyContent: 'space-between',
         paddingVertical: 5,
 
+    },
+    container_border: {
+        borderBottomWidth: 3,
+        borderBottomColor: colors.red
     },
     top_container: {
         flexDirection: 'row',
@@ -27,7 +32,7 @@ export default StyleSheet.create({
         marginRight: 10
     },
     toggle_container: {
-        backgroundColor: 'red',
+        backgroundColor: colors.darkred,
         flexDirection: 'row',
     },
     input_container: {

@@ -1,4 +1,5 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from "react-native"
+import colors from '../../constants/Colors'
 
 const baseStyle = {
     container: {
@@ -15,7 +16,7 @@ export default StyleSheet.create(
         primary: {
             container: {
                 ...baseStyle.container,
-                backgroundColor: 'white',
+                backgroundColor: colors.white,
                 padding: 9,
             },
             title: {
@@ -25,25 +26,25 @@ export default StyleSheet.create(
         secondary: {
             container: {
                 ...baseStyle.container,
-                backgroundColor: 'red',
+                backgroundColor: colors.darkred,
                 padding: 10,
             },
             title: {
                 ...baseStyle.title,
-                color: 'white',
+                color: colors.white
             },
         },
         third: {
             container: {
                 ...baseStyle.container,
-                backgroundColor: 'white',
+                backgroundColor: colors.white,
                 borderWidth: 1,
-                borderColor: 'red',
+                borderColor: colors.darkred,
                 padding: 10,
             },
             title: {
                 ...baseStyle.title,
-                color: 'red',
+                color: colors.darkred,
             },
         }
     })
