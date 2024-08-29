@@ -5,7 +5,11 @@ import styles from './LogInScreen.style'
 import CustomInput from '../../components/CustomInput'
 import CustomButton from '../../components/CustomButton'
 
-export default function LogInScreen() {
+export default function LogInScreen({navigation}) {
+  function handleNavigate(){
+    navigation.navigate('SignUp')
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.top_container}>
@@ -45,6 +49,7 @@ export default function LogInScreen() {
         <CustomButton
           title='Vestel Hesabı Oluştur'
           theme='secondary'
+          onPress={handleNavigate}
         />
       </View>
     </View>

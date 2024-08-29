@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { View, Image } from 'react-native'
+import { View, Image, Pressable } from 'react-native'
 import styles from './CustomHeader.style'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { DrawerActions } from '@react-navigation/native'
@@ -38,10 +38,14 @@ export default function CustomHeader({ navigation }) {
                             navigation.dispatch((DrawerActions.toggleDrawer))
                         )}
                     />
-                    <Image
-                        style={[styles.image, styles.top_item]}
-                        source={require('../../assets/images/vestel.png')}
-                    />
+                    <Pressable
+                        onPress={() => navigation.navigate('Home')}
+                    >
+                        <Image
+                            style={[styles.image, styles.top_item]}
+                            source={require('../../assets/images/vestel.png')}
+                        />
+                    </Pressable>
                 </View>
                 <View style={styles.bottom_container}>
                     <Feather
