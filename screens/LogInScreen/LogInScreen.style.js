@@ -4,7 +4,8 @@ import colors from '../../constants/Colors'
 export default StyleSheet.create({
     container: {
         flex: 1,
-        paddingHorizontal: 50
+        paddingHorizontal: 50,
+        backgroundColor: colors.white
     },
     top_container: {
         flex: 1,

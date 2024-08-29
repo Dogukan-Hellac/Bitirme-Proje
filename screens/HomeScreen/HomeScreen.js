@@ -18,14 +18,14 @@ export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <FlatList
-        data={data.Result.TreeList}
-        keyExtractor={(item) => (item.ID)}
+        data={data.Result?.TreeList || []}
+        keyExtractor={(item) => (item.ID.toString())}
         numColumns={3}
         renderItem={({ item }) => {
           return (
-            <CategoryItem 
-            text={item.DisplayName}
-            source={item.ImageUri}
+            <CategoryItem
+              text={item.DisplayName}
+              source={item.ImageUri}
             />
           )
         }

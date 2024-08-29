@@ -25,5 +25,8 @@ export default StyleSheet.create({
         backgroundColor: colors.lightgray,
         borderBottomWidth: 0.5,
         borderBottomColor: colors.gray
+    },
+    icon:{
+        color:colors.gray
     }
 })

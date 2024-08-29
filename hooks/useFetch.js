@@ -21,3 +21,7 @@ export const getProductsByCategory = (categoryId) => {
 export const getProductDetail = (productId) => {
   return fetchData('https://store.vrunibex.com/mobile2/mbProduct/ProductDetail', { productId });
 };
+
+export const getProductsBySearchKey = (searchKey) => {
+  return fetchData('https://store.vrunibex.com/mobile2/mbProduct/ProductSearch', { searchKey });
+};

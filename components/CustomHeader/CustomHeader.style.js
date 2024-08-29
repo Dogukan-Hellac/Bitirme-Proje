@@ -6,7 +6,7 @@ export default StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         paddingVertical: 5,
-
+        backgroundColor: colors.white
     },
     container_border: {
         borderBottomWidth: 3,
@@ -17,7 +17,8 @@ export default StyleSheet.create({
         alignItems: 'center'
     },
     top_item: {
-        marginLeft: 10
+        marginLeft: 10,
+        color:colors.darkgray
     },
     image: {
         width: 100,
@@ -29,7 +30,8 @@ export default StyleSheet.create({
         alignItems: 'center',
     },
     bottom_item: {
-        marginRight: 10
+        marginRight: 10,
+        color:colors.darkgray
     },
     toggle_container: {
         backgroundColor: colors.darkred,

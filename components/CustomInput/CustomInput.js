@@ -23,7 +23,12 @@ export default function CustomInput({ placeholder, onChangeText, value, isSecure
                 secureTextEntry={secureTextEntry}
                 style={styles.input}
             />
-            {isSecure && <Feather name={iconName} size={24} color="black" onPress={handlePress} />}
+            {isSecure && <Feather
+                name={iconName}
+                size={24}
+                style={styles.icon}
+                onPress={handlePress}
+            />}
         </View>
     )
 }

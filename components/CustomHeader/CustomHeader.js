@@ -1,26 +1,34 @@
 import React, { useState, useEffect } from 'react'
-import { View, Image, Pressable } from 'react-native'
+import { View, Image, Pressable, FlatList, Text } from 'react-native'
 import styles from './CustomHeader.style'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { DrawerActions } from '@react-navigation/native'
-import { useDrawerStatus } from '@react-navigation/drawer';
 
+import { DrawerActions } from '@react-navigation/native'
+import { useDrawerStatus } from '@react-navigation/drawer'
 
 import Feather from '@expo/vector-icons/Feather'
 
 import CustomInput from '../CustomInput'
 import CustomButton from '../CustomButton'
+import SearchItem from '../SearchItem'
+
+import { getProductsBySearchKey } from '../../hooks/useFetch'
 
 export default function CustomHeader({ navigation }) {
     const [isVisible, setIsVisible] = useState(true)
     const [text, setText] = useState('')
+    const [data, setData] = useState([])
 
     const drawerStatus = useDrawerStatus()
 
     useEffect(() => {
-        console.log(drawerStatus);
+        getProductsBySearchKey(text)
+            .then(data => setData(data))
+            .catch(error => console.error(error));
+    }, [text]);
 
-    }, [drawerStatus])
+    console.log(data);
+
 
     return (
         <View>
@@ -30,7 +38,6 @@ export default function CustomHeader({ navigation }) {
                         style={styles.top_item}
                         name={drawerStatus === 'open' ? 'minus' : 'list'}
                         size={30}
-                        color="black"
                         onPress={() => (
                             navigation.dispatch((DrawerActions.toggleDrawer))
                         )}
@@ -48,21 +55,18 @@ export default function CustomHeader({ navigation }) {
                     <Feather
                         name="user"
                         size={30}
-                        color="black"
                         style={styles.bottom_item}
                         onPress={() => navigation.navigate('LogIn')}
                     />
                     <Feather
                         name="search"
                         size={30}
-                        color="black"
                         style={styles.bottom_item}
                         onPress={() => setIsVisible(!isVisible)}
                     />
                     <Feather
                         name="shopping-bag"
                         size={30}
-                        color="black"
                         style={styles.bottom_item}
                         onPress={() => navigation.navigate('Cart')}
                     />
@@ -79,6 +83,22 @@ export default function CustomHeader({ navigation }) {
                 <View style={styles.button_container}>
                     <CustomButton title='Ara' />
                 </View>
+            </View>
+            <View>
+                <FlatList
+                    horizontal
+                    data={data.Result?.ProductList || []}
+                    keyExtractor={(item) => item.ID}
+                    renderItem={({ item }) => {
+                        return (
+                            <SearchItem 
+                            title={item.DisplayName}
+                            source={item.FirstProductImageURL}
+                            price={item.Price1}
+                            />
+                        )
+                    }}
+                />
             </View>
         </View>
     )

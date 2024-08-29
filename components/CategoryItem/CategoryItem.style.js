@@ -32,8 +32,8 @@ export default StyleSheet.create({
         },
     },
     image: {
-        width: 100,
-        height: 100,
+        width: 90,
+        height: 90,
     },
     text_container: {
         alignItems: 'center'
