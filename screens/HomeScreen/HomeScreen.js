@@ -2,10 +2,14 @@ import { View, Text } from 'react-native'
 import React from 'react'
 import styles from './HomeScreen.style'
 
+import CategoryItem from '../../components/CategoryItem'
+
 export default function HomeScreen() {
   return (
-    <View>
-      <Text>HomeScreen</Text>
+    <View style={styles.container}>
+      <CategoryItem text='ELEKTRONİK'/>
+      <CategoryItem text='BEYAZ EŞYA'/>
+      <CategoryItem text='ANKASTRE'/>
     </View>
   )
 }
