@@ -7,7 +7,6 @@ const baseStyle = {
         marginVertical: 15,
         padding: 10,
 
-
         shadowOffset: { width: 0, height: 0 },
         shadowOpacity: 0.5,
         shadowRadius: 10,
@@ -36,10 +35,12 @@ export default StyleSheet.create({
         height: 90,
     },
     text_container: {
-        alignItems: 'center'
+        alignItems: 'center',
+        width:100
     },
     text: {
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        textAlign:'center'
     }
 
 })

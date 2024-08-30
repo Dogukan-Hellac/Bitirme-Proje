@@ -13,7 +13,7 @@ export default function CategoryItem({ source, text, theme = "primary", onPress 
                 <Image style={styles.image} source={imageSource} />
             </Pressable>
             <View style={styles.text_container}>
-                <Text style={styles.text}>{text}</Text>
+                <Text numberOfLines={2} ellipsizeMode='tail' style={styles.text}>{text}</Text>
             </View>
         </View>
     )
