@@ -8,7 +8,12 @@ export default StyleSheet.create({
         margin: 5,
         padding: 10,
         backgroundColor: colors.white,
-        borderRadius: 5
+        borderRadius: 5,
+
+        shadowOffset: { width: 0, height: 0 },
+        shadowOpacity: 0.5,
+        shadowRadius: 10,
+        elevation: 5,
     },
     image: {
         width: 100,

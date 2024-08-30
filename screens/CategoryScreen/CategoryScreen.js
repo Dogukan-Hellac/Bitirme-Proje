@@ -4,28 +4,33 @@ import styles from './CategoryScreen.style'
 
 import CategoryItem from '../../components/CategoryItem'
 
-export default function CategoryScreen({route, navigation}) {
+export default function CategoryScreen({ route, navigation }) {
   const data = route.params
-  
 
+  console.log(data);
+  
   return (
     <View style={styles.container}>
       <Text>Kategoriler</Text>
-    <FlatList
-     data={data}
-     keyExtractor={(item) => item.ID}
-     numColumns={3}
-     renderItem={({item})=>{
-      return(
-       <CategoryItem 
-       text={item.DisplayName}
-       source={item.ImageUri}
-       theme='secondary'
-      //  onPress={()=> navigation.navigate('Category', item.SubCategoryList)}
-       />
-      )
-     }}
-    />
-  </View>
+      <FlatList
+        data={data}
+        keyExtractor={(item) => item.ID}
+        numColumns={3}
+        renderItem={({ item }) => {
+          return (
+            <CategoryItem
+              text={item.DisplayName}
+              source={item.ImageUri}
+              theme='secondary'
+              onPress={() => navigation.navigate('Search',
+                {
+                  listID: item.ID,
+                  displayName: item.DisplayName
+                })}
+            />
+          )
+        }}
+      />
+    </View>
   )
 }
