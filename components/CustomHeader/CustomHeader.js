@@ -78,7 +78,11 @@ export default function CustomHeader({ navigation }) {
                     />
                 </View>
                 <View style={styles.button_container}>
-                    <CustomButton title='Ara' />
+                    <CustomButton title='Ara' onPress={() => {
+                        navigation.navigate('Search', text)
+                        setText('')
+                        setIsVisible(true)
+                    }} />
                 </View>
             </View>
             <View style={[isVisible && { display: 'none' }]}>

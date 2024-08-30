@@ -1,20 +1,33 @@
-import { View, Text, FlatList } from 'react-native'
+import { View, Text, FlatList, ActivityIndicator } from 'react-native'
 import React, { useState, useEffect } from 'react'
-import styles from './ProductListScreen.style'
+import styles from './SearchScreen.style'
 
-import { getProductsByCategory } from '../../hooks/useFetch'
+import { getProductsBySearchKey } from '../../hooks/useFetch'
 
 import ListItem from '../../components/ListItem'
 import FirstListItem from '../../components/FirstListItem'
 
 export default function ProductListScreen({ route }) {
   const [data, setData] = useState([])
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    getProductsByCategory(route.params.listID)
-      .then(data => setData(data.Result.ProductList))
+    setLoading(true)
+    getProductsBySearchKey(route.params)
+      .then(data => {
+        setData(data.Result.ProductList)
+        setLoading(false)
+      })
       .catch(error => console.error(error))
-  }, [])
+  }, [route.params])
+
+  if (loading) {
+    return (
+      <View style={styles.loading}>
+        <ActivityIndicator size={'large'} />
+      </View>
+    )
+  }
 
   const renderHeader = () => {
     if (data.length > 0) {
@@ -34,7 +47,7 @@ export default function ProductListScreen({ route }) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{route.params.displayName}</Text>
+      <Text style={styles.title}>Arama Sonucu</Text>
       <FlatList
         data={dataWithoutHeader}
         keyExtractor={(item) => item.ID}

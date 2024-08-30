@@ -7,6 +7,7 @@ export default StyleSheet.create({
     },
     top_container: {
         width: Dimensions.get('screen').width / 3 - 20,
+        height: Dimensions.get('screen').height / 5,
         backgroundColor: colors.white,
         padding: 10,
 

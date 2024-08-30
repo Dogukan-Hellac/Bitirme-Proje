@@ -8,6 +8,7 @@ import SignUpScreen from './screens/SignUpScreen'
 import CartScreen from './screens/CartScreen'
 import CategoryScreen from './screens/CategoryScreen'
 import ProductListScreen from './screens/ProductListScreen'
+import SearchScreen from './screens/SearchScreen'
 
 import CustomHeader from './components/CustomHeader'
 import ToggleMenu from './components/ToggleMenu'
@@ -27,6 +28,7 @@ function MainStack() {
       <Stack.Screen name="Cart" component={CartScreen} />
       <Stack.Screen name="Category" component={CategoryScreen} />
       <Stack.Screen name="Product" component={ProductListScreen} />
+      <Stack.Screen name="Search" component={SearchScreen} />
     </Stack.Navigator>
   )
 }

@@ -1,8 +1,8 @@
 import { View, Text, Image } from 'react-native'
 import React from 'react'
-import styles from './FirstProductListItem.style'
+import styles from './FirstListItem.style'
 
-export default function FirstProductListItem({ title, source, price }) {
+export default function FirstListItem({ title, source, price }) {
     return (
         <View style={styles.container}>
             <View style={styles.top_container}>
