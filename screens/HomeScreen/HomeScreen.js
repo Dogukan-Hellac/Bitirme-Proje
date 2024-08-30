@@ -6,14 +6,14 @@ import CategoryItem from '../../components/CategoryItem'
 
 import { getCategories } from '../../hooks/useFetch'
 
-export default function HomeScreen() {
+export default function HomeScreen({ navigation }) {
   const [data, setData] = useState([])
 
   useEffect(() => {
     getCategories()
       .then(data => setData(data))
-      .catch(error => console.error(error));
-  }, []);
+      .catch(error => console.error(error))
+  }, [])
 
   return (
     <View style={styles.container}>
@@ -26,6 +26,7 @@ export default function HomeScreen() {
             <CategoryItem
               text={item.DisplayName}
               source={item.ImageUri}
+              onPress={() => navigation.navigate('Category', item.SubCategoryList)}
             />
           )
         }

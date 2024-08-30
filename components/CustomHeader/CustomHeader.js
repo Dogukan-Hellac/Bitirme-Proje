@@ -81,17 +81,17 @@ export default function CustomHeader({ navigation }) {
                     <CustomButton title='Ara' />
                 </View>
             </View>
-            <View>
+            <View style={[isVisible && { display: 'none' }]}>
                 <FlatList
                     horizontal
                     data={data.Result?.ProductList || []}
                     keyExtractor={(item) => item.ID}
                     renderItem={({ item }) => {
                         return (
-                            <SearchItem 
-                            title={item.DisplayName}
-                            source={item.FirstProductImageURL}
-                            price={item.Price1}
+                            <SearchItem
+                                title={item.DisplayName}
+                                source={item.FirstProductImageURL}
+                                price={item.Price1}
                             />
                         )
                     }}

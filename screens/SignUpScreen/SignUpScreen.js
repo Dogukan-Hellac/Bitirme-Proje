@@ -16,20 +16,28 @@ export default function LogInScreen({ navigation }) {
     register(firstName, lastName, cellPhone, email, password)
   }
 
-  const handleError = (errorData) => {
+  function formattedError(errorData) {
     const errors = errorData.Result
+    
+    if(errors){
+      const errorMessages = errors.map((error, index) => `${index + 1}. ${error.Error}`).join('\n')
   
-    const errorMessages = errors.map((error, index) => `${index + 1}. ${error.Error}`).join('\n')
-  
-    Alert.alert(
-      "Kayıt Hatası", 
-      errorMessages,  
-      [{ text: "Tamam" }] 
-    )
+      Alert.alert(
+        errorData.Message || 'Hata',
+        errorMessages || 'Bir Hata Oluştu',
+        [{ text: "Tamam" }]
+      )
+    }else{
+      Alert.alert(
+        'Hata',
+        errorData.Message || 'Bir hata Oluştu',
+        [{ text: "Tamam" }]
+      )
+    }
   }
 
-  if(data){
-   handleError(data) 
+  if (data) {
+    formattedError(data)
   }
 
   return (
