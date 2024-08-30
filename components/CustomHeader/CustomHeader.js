@@ -96,6 +96,7 @@ export default function CustomHeader({ navigation }) {
                                 title={item.DisplayName}
                                 source={item.FirstProductImageURL}
                                 price={item.Price1}
+                                onPress={()=> navigation.navigate('Detail', item.ID)}
                             />
                         )
                     }}

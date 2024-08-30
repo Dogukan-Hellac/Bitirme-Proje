@@ -1,10 +1,10 @@
-import { View, Text, Image } from 'react-native'
+import { View, Text, Image, Pressable } from 'react-native'
 import React from 'react'
 import styles from './ListItem.style'
 
-export default function ListItem({ title, source, price }) {
+export default function ListItem({ title, source, price, onPress }) {
     return (
-        <View style={styles.container}>
+        <Pressable style={styles.container} onPress={onPress}>
             <View style={styles.top_container}>
                 <Image style={styles.image} source={{ uri: source }} />
                 <Text style={styles.title} numberOfLines={2}>{title}</Text>
@@ -12,6 +12,6 @@ export default function ListItem({ title, source, price }) {
             <View style={styles.bottom_container}>
                 <Text style={styles.price}>{price}TL</Text>
             </View>
-        </View>
+        </Pressable>
     )
 }

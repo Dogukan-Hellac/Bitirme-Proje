@@ -7,7 +7,7 @@ import { getProductsByCategory } from '../../hooks/useFetch'
 import ListItem from '../../components/ListItem'
 import FirstListItem from '../../components/FirstListItem'
 
-export default function ProductListScreen({ route }) {
+export default function ProductListScreen({ route, navigation }) {
   const [data, setData] = useState([])
 
   useEffect(() => {
@@ -24,6 +24,7 @@ export default function ProductListScreen({ route }) {
           title={firstItem.DisplayName}
           source={firstItem.FirstProductImageURL}
           price={firstItem.Price1}
+          onPress={() =>navigation.navigate('Detail', firstItem.ID)}
         />
       )
     }
@@ -46,6 +47,7 @@ export default function ProductListScreen({ route }) {
               title={item.DisplayName}
               source={item.FirstProductImageURL}
               price={item.Price1}
+              onPress={() => navigation.navigate('Detail', item.ID)}
             />
           )
         }}

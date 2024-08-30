@@ -9,9 +9,12 @@ import CartScreen from './screens/CartScreen'
 import CategoryScreen from './screens/CategoryScreen'
 import ProductListScreen from './screens/ProductListScreen'
 import SearchScreen from './screens/SearchScreen'
+import ProductDetailScreen from './screens/ProductDetailScreen'
 
 import CustomHeader from './components/CustomHeader'
 import ToggleMenu from './components/ToggleMenu'
+
+import { UserProvider } from './context/UserContext'
 
 const Stack = createNativeStackNavigator()
 const Drawer = createDrawerNavigator()
@@ -29,24 +32,27 @@ function MainStack() {
       <Stack.Screen name="Category" component={CategoryScreen} />
       <Stack.Screen name="Product" component={ProductListScreen} />
       <Stack.Screen name="Search" component={SearchScreen} />
+      <Stack.Screen name="Detail" component={ProductDetailScreen} />
     </Stack.Navigator>
   )
 }
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <Drawer.Navigator
-        drawerContent={(props) => <ToggleMenu {...props} />}
-        screenOptions={{
-          headerShown: false,
-          drawerType: 'slide',
-          overlayColor: 'transparent',
-        }}
-      >
-        <Drawer.Screen name="MainStack" component={MainStack} />
-      </Drawer.Navigator>
-    </NavigationContainer>
+    <UserProvider>
+      <NavigationContainer>
+        <Drawer.Navigator
+          drawerContent={(props) => <ToggleMenu {...props} />}
+          screenOptions={{
+            headerShown: false,
+            drawerType: 'slide',
+            overlayColor: 'transparent',
+          }}
+        >
+          <Drawer.Screen name="MainStack" component={MainStack} />
+        </Drawer.Navigator>
+      </NavigationContainer>
+    </UserProvider>
   )
 }
 

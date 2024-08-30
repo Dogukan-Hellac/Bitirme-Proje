@@ -4,7 +4,7 @@ import React from 'react'
 export default function CartScreen() {
   return (
     <View>
-      <Text>CartScreen</Text>
+      <Text>SEPETİM</Text>
     </View>
   )
 }

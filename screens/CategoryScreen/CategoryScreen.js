@@ -9,7 +9,7 @@ export default function CategoryScreen({ route, navigation }) {
   
   return (
     <View style={styles.container}>
-      <Text>Kategoriler</Text>
+      <Text style={styles.title}>Kategoriler</Text>
       <FlatList
         data={data}
         keyExtractor={(item) => item.ID}
