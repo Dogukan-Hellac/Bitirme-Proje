@@ -7,7 +7,7 @@ export default StyleSheet.create({
         borderBottomWidth: 2
     },
     subList: {
-        marginLeft:10
+        marginLeft: 10
     },
     subListText: {
         fontSize: 13
@@ -34,4 +34,9 @@ export default StyleSheet.create({
         fontSize: 15,
         color: colors.white,
     },
+    subItem: {
+        height: 30,
+        marginTop: 10,
+        marginLeft: 15
+    }
 })

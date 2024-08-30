@@ -9,21 +9,18 @@ import CustomButton from '../../components/CustomButton'
 
 export default function ProductDetailScreen({ route }) {
     const [data, setData] = useState([])
-    const [response, setResponse] = useState([])
 
-    const addToCart = useAddToCart();
+    const addToCart = useAddToCart()
 
     const handleAddToCart = async () => {
-        const variantID = data.VisibleAttributeList[0].VariantID;
-        console.log(variantID);
-        
+        const variantID = data.VisibleAttributeList[0].VariantID
         try {
-          const response = await addToCart(variantID)
-          Alert.alert('Başarılı', response.Message)
+            const response = await addToCart(variantID)
+            Alert.alert('Başarılı', response.Message)
         } catch (error) {
-          console.error('Failed to add to cart:', error)
+            console.error('Failed to add to cart:', error)
         }
-      }
+    }
 
     useEffect(() => {
         getProductDetail(route.params)
@@ -56,7 +53,8 @@ export default function ProductDetailScreen({ route }) {
                 <Text style={styles.price}>{data.ActualPriceToShowOnScreen}TL</Text>
             </View>
             <View style={styles.button_container}>
-                <CustomButton title="SEPETE EKLE" theme='secondary' onPress={handleAddToCart} />
+                <CustomButton title={data.IsOutOfStock ? "SEPETE EKLE": "STOKTA YOK"} 
+                theme='secondary' onPress={data.IsOutOfStock ? handleAddToCart: null} />
             </View>
         </View>
     )

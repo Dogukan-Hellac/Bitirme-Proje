@@ -8,8 +8,8 @@ import Collapsible from 'react-native-collapsible'
 
 import colors from '../../constants/Colors'
 
-export default function AccordionItem({ item, isSubList = false }) {
-    const [collapsed, setCollapsed] = useState(true);
+export default function AccordionItem({ item, isSubList = false, onPress }) {
+    const [collapsed, setCollapsed] = useState(true)
 
     return (
         <View style={[(!collapsed && item.SubCategoryList.length > 0) && styles.accordionItem, isSubList && styles.subList]}>
@@ -25,7 +25,15 @@ export default function AccordionItem({ item, isSubList = false }) {
                     <FlatList
                         data={item.SubCategoryList}
                         keyExtractor={(subItem) => subItem.ID.toString()}
-                        renderItem={({ item: subItem }) => <AccordionItem item={subItem} isSubList={true} />
+                        renderItem={({ item: subItem }) => {
+                            return (
+                                <TouchableOpacity onPress={() => onPress(subItem)}>
+                                    <View style={styles.subItem}>
+                                        <Text>{subItem.DisplayName}</Text>
+                                    </View>
+                                </TouchableOpacity>
+                            )
+                        }
                         }
                     />
                 )}
