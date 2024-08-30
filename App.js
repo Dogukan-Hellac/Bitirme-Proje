@@ -1,19 +1,19 @@
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createDrawerNavigator } from '@react-navigation/drawer'
 
 import HomeScreen from './screens/HomeScreen'
 import LogInScreen from './screens/LogInScreen'
 import SignUpScreen from './screens/SignUpScreen'
 import CartScreen from './screens/CartScreen'
 import CategoryScreen from './screens/CategoryScreen'
-import SearchScreen from './screens/SearchScreen'
+import ProductListScreen from './screens/ProductListScreen'
 
 import CustomHeader from './components/CustomHeader'
 import ToggleMenu from './components/ToggleMenu'
 
-const Stack = createNativeStackNavigator();
-const Drawer = createDrawerNavigator();
+const Stack = createNativeStackNavigator()
+const Drawer = createDrawerNavigator()
 
 function MainStack() {
   return (
@@ -26,7 +26,7 @@ function MainStack() {
       <Stack.Screen name="SignUp" component={SignUpScreen} />
       <Stack.Screen name="Cart" component={CartScreen} />
       <Stack.Screen name="Category" component={CategoryScreen} />
-      <Stack.Screen name="Search" component={SearchScreen} />
+      <Stack.Screen name="Product" component={ProductListScreen} />
     </Stack.Navigator>
   )
 }

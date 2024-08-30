@@ -6,8 +6,6 @@ import CategoryItem from '../../components/CategoryItem'
 
 export default function CategoryScreen({ route, navigation }) {
   const data = route.params
-
-  console.log(data);
   
   return (
     <View style={styles.container}>
@@ -22,7 +20,7 @@ export default function CategoryScreen({ route, navigation }) {
               text={item.DisplayName}
               source={item.ImageUri}
               theme='secondary'
-              onPress={() => navigation.navigate('Search',
+              onPress={() => navigation.navigate('Product',
                 {
                   listID: item.ID,
                   displayName: item.DisplayName
