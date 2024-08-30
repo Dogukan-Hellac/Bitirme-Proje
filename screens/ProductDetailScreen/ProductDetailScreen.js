@@ -1,13 +1,29 @@
-import { View, Text, Image, FlatList } from 'react-native'
+import { View, Text, Image, FlatList, Alert } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import styles from './ProductDetailScreen.style'
 
 import { getProductDetail } from '../../hooks/useFetch'
+import { useAddToCart } from '../../hooks/useCart'
 
 import CustomButton from '../../components/CustomButton'
 
 export default function ProductDetailScreen({ route }) {
     const [data, setData] = useState([])
+    const [response, setResponse] = useState([])
+
+    const addToCart = useAddToCart();
+
+    const handleAddToCart = async () => {
+        const variantID = data.VisibleAttributeList[0].VariantID;
+        console.log(variantID);
+        
+        try {
+          const response = await addToCart(variantID)
+          Alert.alert('Başarılı', response.Message)
+        } catch (error) {
+          console.error('Failed to add to cart:', error)
+        }
+      }
 
     useEffect(() => {
         getProductDetail(route.params)
@@ -40,7 +56,7 @@ export default function ProductDetailScreen({ route }) {
                 <Text style={styles.price}>{data.ActualPriceToShowOnScreen}TL</Text>
             </View>
             <View style={styles.button_container}>
-                <CustomButton title="SEPETE EKLE" theme='secondary' />
+                <CustomButton title="SEPETE EKLE" theme='secondary' onPress={handleAddToCart} />
             </View>
         </View>
     )

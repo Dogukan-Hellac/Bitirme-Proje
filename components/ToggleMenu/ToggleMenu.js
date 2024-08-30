@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import styles from './ToggleMenu.style'
 
 import { getCategories } from '../../hooks/useFetch'
+import AccordionItem from '../AccordionItem/AccordionItem'
 
 export default function ToggleMenu() {
     const [data, setData] = useState([])
@@ -20,7 +21,7 @@ export default function ToggleMenu() {
                 keyExtractor={(item) => item.ID}
                 renderItem={({ item }) => {
                     return (
-                        <Text>{item.DisplayName}</Text>
+                        <AccordionItem item={item}/>
                     )
                 }}
             />
