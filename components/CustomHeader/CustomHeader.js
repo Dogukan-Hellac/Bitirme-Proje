@@ -27,9 +27,6 @@ export default function CustomHeader({ navigation }) {
             .catch(error => console.error(error));
     }, [text]);
 
-    console.log(data);
-
-
     return (
         <View>
             <SafeAreaView style={[styles.container, isVisible && styles.container_border]}>
